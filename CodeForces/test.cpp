@@ -7,7 +7,7 @@ int main()
 	//for(long long i = 0; i < 5; i++)arr[i] *= -1;
 	arr[2] *= -1;
 	cout << "NEW: ";for(long long i = 0; i < 5; i++) cout << arr[i] << " "; cout << endl;*/
-    cout << "her";
+    for(int i = 0; i < 10; i++) cout << i << " " ;
 }
 
 int jumpingOnClouds(vector<int> c) {
