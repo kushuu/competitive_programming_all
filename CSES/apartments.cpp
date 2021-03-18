@@ -48,7 +48,7 @@ int main() {
     cout << ans;
     */
     
-    ll n,m,k,ans=0;
+    /* ll n,m,k,ans=0;
     cin>>n>>m>>k;
     ll a[n];
     for(ll i=0;i<n;i++){
@@ -72,5 +72,27 @@ int main() {
 
     }
     cout<<ans<<endl;
+    */
+    
+    ll n, m, k; cin >> n >> m >> k;
+    vll apartments(n), demands(m);
+
+    fo(i,n) cin >> apartments[i];
+    fo(i,m) cin >> demands[i];
+
+    sort(apartments.begin(), apartments.end());
+    sort(demands.begin(), demands.end());
+
+    ll apart_start = 0, dem_start = 0, ans = 0;
+    while(apart_start < n and dem_start < m) {
+        if(abs(apartments[apart_start] - demands[dem_start]) <= k) {
+            ans++;
+            apart_start++;
+            dem_start++;
+        }
+        else if(apartments[apart_start] < demands[dem_start]) apart_start++;
+        else dem_start++;
+    }
+    cout << ans;
     return 0;
 }
