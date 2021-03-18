@@ -1,5 +1,5 @@
 /**********************************************
-Author: kushuu   File: movie festival.cpp    Date: Fri Sep 18 2020
+Author: kushuu   File: movie_festival.cpp    Date: Thurs Mar 13 2021
 **********************************************/
 
 #include <bits/stdc++.h>
@@ -28,16 +28,28 @@ ll getlcm(ll a, ll b) {
     return (a*b)/__gcd(a, b);
 }
 
+bool cmp(vector<int>& a, vector<int>& b) {
+    return a[1] < b[1];
+}
+
 int main() {
     fastIO;
     ll n; cin >> n;
-    vector<pair<ll, ll>> check;
-    while(n--) {
-        ll a, b; cin >> a >> b;
-        check.pb({a, b});
+    vector<vector<int>> check;
+    fo(i, n) {
+        int start, end; cin >> start >> end;
+        check.push_back({start, end});
     }
+    sort(check.begin(), check.end(), cmp);
 
-    sort(check.begin(), check.end());
-    
+    ll ans = 1, end = check[0][1];
+    for(int i = 1; i < n; i++) {
+        if(check[i][0] >= end) {
+            ans++;
+            end = check[i][1];
+        }
+    }
+    cout << ans;
+
     return 0;
 }
