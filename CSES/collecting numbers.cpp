@@ -29,17 +29,12 @@ ll getlcm(ll a, ll b) {
 
 int main() {
     fastIO;
+    ll ans = 0;
     ll n; cin >> n;
-    vll ans, check(n);
-    fo(i,0,n) cin >> check[i];
-    reverse(check.begin(), check.end());
-    fo(i, 0, n) {
-        ll ele = check[i];
-        ll pos = upper_bound(ans.begin(), ans.end(), ele) - ans.begin();
-        if(pos >= ans.size()) ans.push_back(check[i]);
-        else ans[pos] = check[i];
-        // for(auto i : ans) cout << i << " " ; cout << endl;
-    }
-    cout << ans.size();
+    vll b(n), check(n);
+    fo(i,0,n) cin >> check[i], check[i]--;
+    for(int i=0;i<n;i++) b[check[i]]=i ;
+    for(int i=1;i<n;i++) ans += (b[i]<b[i-1]);
+    cout << ans+1 ;
     return 0;
 }
