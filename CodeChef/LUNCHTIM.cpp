@@ -36,15 +36,15 @@ int main() {
         vll pre(n), post(n), ans(n);
         fo(i, 0, n) {
             ll start = i-1, end = i+1;
-            while(start >= 0) {
-                if(check[start--] <= check[i]) ans[i]++;
-                else break;
+            while(start) {
+                if(check[start--] == check[i]) ans[i]++;
+                else if(check[start--] > check[i]) break;
             }
             while(end < n) {
-                if(check[end++] <= check[i]) ans[i]++;
-                else break;
+                if(check[end++] == check[i]) ans[i]++;
+                else if(check[end++] > check[i]) break;
             }
-        }
+        }   
         for(auto i : ans) cout << i << " " ; cout << endl;
     }
     return 0;
