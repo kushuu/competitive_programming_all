@@ -1,5 +1,5 @@
 /****************************************************************
-Author: kushuu   File: A.cpp    Date: Sat Mar 27 2021
+Author: kushuu   File: NFS.cpp    Date: Sat Mar 27 2021
 ****************************************************************/
 
 #include <bits/stdc++.h>
@@ -16,7 +16,6 @@ Author: kushuu   File: A.cpp    Date: Sat Mar 27 2021
 #define MOD 1000000007
 #define endl "\n"
 #define F first
-#define S second
 #define s(a) a.size()
 
 //program specific shorts (if any)
@@ -30,18 +29,15 @@ ll getlcm(ll a, ll b) {
 int main() {
     fastIO;
     ll t; cin >> t;
-    fo(test, 1, t+1) {
-        cout << "Case #" << test << ": " ;
-        ll n; cin >> n;
-        vll check(n); fo(i, 0, n) cin >> check[i];
-        ll ans = 0;
-        fo(i,0, n-1) {
-            ll j = min_element(check.begin()+i, check.end()) - check.begin();
-            reverse(check.begin()+i, check.begin()+j + 1);
-            ans += j - i + 1 ;
-            // cout << i << " " << j << "\n";
+    while(t--) {
+        ll U, V, A, S;
+        cin >> U >> V >> A >> S;
+        if(U <= V) {
+            cout << "YES\n";
+            continue;
         }
-        cout << ans << endl;
+        if(U*U - 2*A*S <= V*V) cout << "YES\n";
+        else cout << "NO\n";
     }
     return 0;
 }

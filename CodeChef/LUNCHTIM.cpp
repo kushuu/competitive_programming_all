@@ -1,5 +1,5 @@
 /****************************************************************
-Author: kushuu   File: A.cpp    Date: Sat Mar 27 2021
+Author: kushuu   File: LUNCHTIM.cpp    Date: Sat Mar 27 2021
 ****************************************************************/
 
 #include <bits/stdc++.h>
@@ -30,18 +30,22 @@ ll getlcm(ll a, ll b) {
 int main() {
     fastIO;
     ll t; cin >> t;
-    fo(test, 1, t+1) {
-        cout << "Case #" << test << ": " ;
+    while(t--) {
         ll n; cin >> n;
         vll check(n); fo(i, 0, n) cin >> check[i];
-        ll ans = 0;
-        fo(i,0, n-1) {
-            ll j = min_element(check.begin()+i, check.end()) - check.begin();
-            reverse(check.begin()+i, check.begin()+j + 1);
-            ans += j - i + 1 ;
-            // cout << i << " " << j << "\n";
+        vll pre(n), post(n), ans(n);
+        fo(i, 0, n) {
+            ll start = i-1, end = i+1;
+            while(start >= 0) {
+                if(check[start--] == check[i]) ans[i]++;
+                else break;
+            }
+            while(end < n) {
+                if(check[end++] == check[i]) ans[i]++;
+                else break;
+            }
         }
-        cout << ans << endl;
+        for(auto i : ans) cout << i << " " ; cout << endl;
     }
     return 0;
 }

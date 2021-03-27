@@ -1,5 +1,5 @@
 /****************************************************************
-Author: kushuu   File: A.cpp    Date: Sat Mar 27 2021
+Author: kushuu   File: rev engg.cpp    Date: Sat Mar 27 2021
 ****************************************************************/
 
 #include <bits/stdc++.h>
@@ -31,17 +31,26 @@ int main() {
     fastIO;
     ll t; cin >> t;
     fo(test, 1, t+1) {
-        cout << "Case #" << test << ": " ;
-        ll n; cin >> n;
-        vll check(n); fo(i, 0, n) cin >> check[i];
-        ll ans = 0;
-        fo(i,0, n-1) {
-            ll j = min_element(check.begin()+i, check.end()) - check.begin();
-            reverse(check.begin()+i, check.begin()+j + 1);
-            ans += j - i + 1 ;
-            // cout << i << " " << j << "\n";
+        cout << "Case #" << test << ": ";
+        
+        ll n, c; cin >> n >> c;
+        if(c < n-1 or c > (n*(n+1)/2 - 1)) {
+            cout << "IMPOSSIBLE\n";
+            continue;
         }
-        cout << ans << endl;
+        vll check(n);
+        fo(i, 0, n) check[i] = i+1;
+        ll i = 0;
+        while(c > 1) {
+            if(c <= n - i-1) {
+                break;
+            }
+            c -= n - i;
+            reverse(check.begin()+i, check.end());
+            i++;
+        }
+
+        for(auto i : check) cout << i << " " ; cout << endl;
     }
     return 0;
 }
