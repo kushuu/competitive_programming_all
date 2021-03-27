@@ -27,13 +27,6 @@ ll getlcm(ll a, ll b) {
     return (a*b)/__gcd(a, b);
 }
 
-void rev(vll &vec, ll start, ll end) {
-    ll size = vec.size();
-    fo(i, start, (end+start)/2) {
-        swap(vec[i], vec[size-i-1]);
-    }
-}
-
 int main() {
     fastIO;
     ll t; cin >> t;
@@ -44,8 +37,10 @@ int main() {
         ll ans = 0;
         fo(i,0, n-1) {
             ll j = min_element(check.begin()+i, check.end()) - check.begin();
-            rev(check, i, j);
+            reverse(check.begin()+i, check.begin()+j);
             ans += j - i + 1 ;
+            cout << i << " " << j << "\n";
+            // for(auto i : check) cout << i << " " ; cout << endl;
         }
         cout << ans << endl;
     }
