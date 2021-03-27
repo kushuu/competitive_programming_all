@@ -39,7 +39,6 @@ int main() {
             ll j = min_element(check.begin()+i, check.end()) - check.begin();
             reverse(check.begin()+i, check.begin()+j + 1);
             ans += j - i + 1 ;
-            // cout << i << " " << j << "\n";
         }
         cout << ans << endl;
     }
