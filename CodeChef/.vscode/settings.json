@@ -1,6 +1,7 @@
 {
     "python.pythonPath": "C:\\Users\\kushagra soni\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "vector": "cpp"
     }
 }

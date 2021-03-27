@@ -37,11 +37,11 @@ int main() {
         fo(i, 0, n) {
             ll start = i-1, end = i+1;
             while(start >= 0) {
-                if(check[start--] == check[i]) ans[i]++;
+                if(check[start--] <= check[i]) ans[i]++;
                 else break;
             }
             while(end < n) {
-                if(check[end++] == check[i]) ans[i]++;
+                if(check[end++] <= check[i]) ans[i]++;
                 else break;
             }
         }
