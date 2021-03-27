@@ -1,5 +1,5 @@
 /****************************************************************
-Author: kushuu   File: Josephus Problem I.cpp    Date: Wed Mar 24 2021
+Author: kushuu   File: A.cpp    Date: Sat Mar 27 2021
 ****************************************************************/
 
 #include <bits/stdc++.h>
@@ -27,19 +27,27 @@ ll getlcm(ll a, ll b) {
     return (a*b)/__gcd(a, b);
 }
 
+void rev(vll &vec, ll start, ll end) {
+    ll size = vec.size();
+    fo(i, start, (end+start)/2) {
+        swap(vec[i], vec[size-i-1]);
+    }
+}
+
 int main() {
     fastIO;
-    ll n; cin >> n;
-    vll check(n);
-    for(ll i = 0; i < n; i++) {
-        check[i] = -1;
-    }
-
-    for(ll i = 2; !check.empty(); i = (i+2)%n) {
-        if(check[i] < 0) {
-            cout << i << " " ;
-            check[i] = 1;
+    ll t; cin >> t;
+    fo(test, 1, t+1) {
+        cout << "Case #" << test << ": " ;
+        ll n; cin >> n;
+        vll check(n); fo(i, 0, n) cin >> check[i];
+        ll ans = 0;
+        fo(i,0, n-1) {
+            ll j = min_element(check.begin()+i, check.end()) - check.begin();
+            rev(check, i, j);
+            ans += j - i + 1 ;
         }
+        cout << ans << endl;
     }
     return 0;
 }

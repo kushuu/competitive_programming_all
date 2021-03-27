@@ -1,3 +1,3 @@
-a.exe
+*.exe
 .vscode/
-alright.txt
+*.txt

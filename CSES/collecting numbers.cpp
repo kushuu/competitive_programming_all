@@ -11,8 +11,10 @@ Author: kushuu   File: collecting numbers.cpp    Date: Mon Mar 22 2021
 #define pb push_back
 #define mp make_pair
 #define vpll vector<pair<long long int, long long int>>
-#define fastIO ios_base::sync_with_stdio(false); cin.tie(NULL);
-#define fo(i,x,y) for(long long i = x; i < y; i++)
+#define fastIO                        \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);
+#define fo(i, x, y) for (long long i = x; i < y; i++)
 #define MOD 1000000007
 #define endl "\n"
 #define F first
@@ -23,18 +25,31 @@ Author: kushuu   File: collecting numbers.cpp    Date: Mon Mar 22 2021
 //
 using namespace std;
 
-ll getlcm(ll a, ll b) {
-    return (a*b)/__gcd(a, b);
+ll getlcm(ll a, ll b)
+{
+    return (a * b) / __gcd(a, b);
 }
 
-int main() {
+int main()
+{
     fastIO;
-    ll ans = 0;
-    ll n; cin >> n;
-    vll b(n), check(n);
-    fo(i,0,n) cin >> check[i], check[i]--;
-    for(int i=0;i<n;i++) b[check[i]]=i ;
-    for(int i=1;i<n;i++) ans += (b[i]<b[i-1]);
-    cout << ans+1 ;
+    ll n, i = 0;
+    cin >> n;
+    map<int, int> lastind;
+    int a[n + 1];
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> a[i];
+    }
+    int i = 1, ans = 0;
+    for (int j = 1; j <= n; j++)
+    {
+        i = max(i, lastind[a[j]] + 1);
+        ans = max(ans, j - i + 1);
+        lastind[a[j]] = j;
+    }
+
+    cout << ans << endl;
+
     return 0;
 }
