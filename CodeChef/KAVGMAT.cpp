@@ -39,8 +39,9 @@ int main() {
             if(mat[i][j] >= k) ans++;
         }
         fo(order, 1, min(n,m)) {
-
+            
         }
+        cout << ans << endl;
     }
     return 0;
 }
