@@ -29,9 +29,8 @@ ll getlcm(ll a, ll b) {
 
 int main() {
     fastIO;
-    ll t; cin >> t;
-    while(t--) {
-        
-    }
+    int A, B, C; cin >> A >> B >> C;
+    if(A == B or B == C or A == C or B == C) cout << "YES\n";
+    else cout << "NO\n";
     return 0;
 }
