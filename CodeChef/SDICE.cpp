@@ -32,10 +32,23 @@ int main() {
     ll t; cin >> t;
     while(t--) {
         ll n; cin >> n;
-        if(n == 1) cout << 20 << endl;
-        if(n == 2) cout << 36 << endl;
-        if(n == 3) cout << 48 << endl;
-        if(n == 4) cout << 58 << endl;
+        map<int, ll> magik;
+        magik[1] = 20;
+        magik[2] = 36;
+        magik[3] = 51;
+        magik[4] = 60;
+        magik[5] = 76;
+        magik[6] = 88;
+        magik[7] = 99;
+        magik[8] = 104;
+        
+        if(n <= 8) cout << magik[n] << endl;
+        else {
+            // cout << n << " " << n/4 << " " << n%4 << "  " ;
+            cout << (n/4-1)*44 + (4-n%4)*15 + (n%4)*11 + magik[n%4] << endl;
+
+        }
+
     }
     return 0;
 }
