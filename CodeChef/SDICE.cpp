@@ -1,5 +1,5 @@
 /****************************************************************
-Author: kushuu   File: BOLT.cpp    Date: Fri Apr 02 2021
+Author: kushuu   File: SDICE.cpp    Date: Fri Apr 02 2021
 ****************************************************************/
 
 #include <bits/stdc++.h>
@@ -31,17 +31,11 @@ int main() {
     fastIO;
     ll t; cin >> t;
     while(t--) {
-        cout << setprecision(3);
-        double k1, k2, k3, v;
-        cin >> k1 >> k2 >> k3 >> v;
-        double time = 100.0;
-        time /= k1;
-        time /= k2;
-        time /= k3;
-        time /= v;
-        time = floor(time*100 + 0.5)/100;
-        if(time < 9.58) cout << "YES\n";
-        else cout << "NO\n";
+        ll n; cin >> n;
+        if(n == 1) cout << 20 << endl;
+        if(n == 2) cout << 36 << endl;
+        if(n == 3) cout << 48 << endl;
+        if(n == 4) cout << 58 << endl;
     }
     return 0;
 }

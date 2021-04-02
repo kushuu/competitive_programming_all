@@ -1,5 +1,5 @@
 /****************************************************************
-Author: kushuu   File: BOLT.cpp    Date: Fri Apr 02 2021
+Author: kushuu   File: KAVGMAT.cpp    Date: Fri Apr 02 2021
 ****************************************************************/
 
 #include <bits/stdc++.h>
@@ -31,17 +31,16 @@ int main() {
     fastIO;
     ll t; cin >> t;
     while(t--) {
-        cout << setprecision(3);
-        double k1, k2, k3, v;
-        cin >> k1 >> k2 >> k3 >> v;
-        double time = 100.0;
-        time /= k1;
-        time /= k2;
-        time /= k3;
-        time /= v;
-        time = floor(time*100 + 0.5)/100;
-        if(time < 9.58) cout << "YES\n";
-        else cout << "NO\n";
+        ll n, m, k, ans = 0;
+        cin >> n >> m >> k;
+        ll mat[n][m];
+        fo(i, 0, n) fo(j, 0, m) {
+            cin >> mat[i][j];
+            if(mat[i][j] >= k) ans++;
+        }
+        fo(order, 1, min(n,m)) {
+
+        }
     }
     return 0;
 }
