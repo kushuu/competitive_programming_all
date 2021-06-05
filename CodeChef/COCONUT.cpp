@@ -1,5 +1,5 @@
 /****************************************************************
-Author: kushuu   File: c.cpp    Date: Fri May 28 2021
+Author: kushuu   File: COCONUT.cpp    Date: Sat Jun 05 2021
 ****************************************************************/
 
 #include <bits/stdc++.h>
@@ -27,22 +27,13 @@ ll getlcm(ll a, ll b) {
     return (a*b)/__gcd(a, b);
 }
 
-bool fun(ll a, ll b) {
-    if(a == b) return 1;
-    bool check = false;
-    for(ll i = 2; i*i <= b and a+i <= b; i++) {
-        if(a%i == 0) {
-            check = fun(a+i, b);
-            // if(check) return 1;
-        }
-    }
-    return check;   
-}
-
 int main() {
     fastIO;
-    ll a, b; cin >> a >> b;
-    if(fun(a, b)) cout << "Yes";
-    else cout << "No";
+    ll t; cin >> t;
+    while(t--) {
+        ll a, b, A, B;
+        cin >> a >> b >> A >> B;
+        cout << A/a + B/b << endl;
+    }
     return 0;
 }
