@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/set-mismatch
+
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int size = nums.size();
+        vector<int> ans(2);
+        sort(nums.begin(), nums.end());
+        for(int i = 1; i < size; i++) {
+            if(nums[i] == nums[i-1]) {
+                ans[0] = nums[i];
+                break;
+            }
+        }
+        int temp_sum = accumulate(nums.begin(), nums.end(), 0), hona_tha = (size*(size+1))/2;
+        ans[1] = ans[0] + (hona_tha-temp_sum);
+        return ans;
+    }
+};
