@@ -1,0 +1,15 @@
+// https://leetcode.com/problems/power-of-three
+
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        if(n == 1 or n == 3) return true;
+        while(n) {
+            n /= 3;
+            // cout << n << " " ;
+            if(!(n&1)) return false;
+            if(n == 3) return true;
+        }
+        return false;
+    }
+};

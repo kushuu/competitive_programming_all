@@ -1,0 +1,6 @@
+// https://leetcode.com/problems/combine-two-tables
+
+# Write your MySQL query statement below
+select FirstName, LastName, City, State
+from Person P Left join Address A
+on P.PersonId = A.PersonId
